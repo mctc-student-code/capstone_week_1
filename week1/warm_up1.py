@@ -14,7 +14,7 @@ def main():
     # to get month name
     current_month_name = now.strftime('%B') # use %b to get short form like Mar for march etc
     
-    name = getName()
+    name = getName() # method call
     month = monthBorn()
     print(f'Hello, {name}')
 
