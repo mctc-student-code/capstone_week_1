@@ -32,6 +32,6 @@ def main():
     if month.lower() == current_month_name.lower(): # checks if the it's their birthday month
         print('Happy birthday month') 
     
-    print(f'There are {len(name)} letters in your name')
+    print(f'There are {len(name)} letters in your name') # printls the length of the name
 
 main()    
