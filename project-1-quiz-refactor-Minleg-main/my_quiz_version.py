@@ -1,5 +1,7 @@
 """
 Project 1: User is given quiz on either art or space topic and their quiz result is printed. 
+We should be able to add more questions and answer in any of the topics in the dictionary defined and the program should 
+execute correctly
 """
 def main():
     topic = chooseGenre() # user is prompted to choose their topic of interest
