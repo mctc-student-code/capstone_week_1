@@ -22,13 +22,14 @@ def main():
                               'What was the first human-made object to leave the solar system?': 'Voyager 1',
                               'When an asteroid enters the Earth\'s atmosphere and burns up, it is known as what?': 'Meteor'}
     
+    # added new sports dictionary
     sports_questions_answer = {'Which gymnast is the "triple-twisting double-tucked salto backwards" skill named after?': 'Simone Biles',
                                'Which country has won the soccer world cup the most times?': 'Brasil',
                                'What does MLB stand for?' : 'Major League Baseball'}
     
     number_of_art_questions = len(art_questions_answer) # gets the number of questions for arts topic
     number_of_space_questions = len(space_questions_answer) # gets the number of questions for space topic
-    number_of_sports_questions = len(sports_questions_answer)
+    number_of_sports_questions = len(sports_questions_answer) 
 
     if topic == 'art': 
         total = questions(art_questions_answer) # user is asked the questions on the topic and their result is stored in total variable
@@ -36,7 +37,7 @@ def main():
     elif topic == 'space': 
         total = questions(space_questions_answer) # questions asked on space topic and result is obtained in total
         output(topic,total,number_of_space_questions) # their quiz result is printed
-    else :
+    else : # if topic is not art and space, it must be sport
         total = questions(sports_questions_answer)
         output(topic,total,number_of_sports_questions)
 
@@ -64,4 +65,4 @@ def questions(question_answer_dictionary): # method to ask user the questions re
 def output(topic,total,number_of_questions): # outputs the total
     print(f'Your total score on {topic} questions is {total} out of {number_of_questions}')
 
-main()
+main() # call main function
