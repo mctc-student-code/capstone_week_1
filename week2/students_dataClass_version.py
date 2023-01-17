@@ -24,6 +24,8 @@ class Student:
     # you can override the toString methods
     def __str__(self): # similar to toString() method in Java
         return f'Student name = {self.name}, ID: {self.college_id}, GPA: {self.gpa}'
+
+
 def main():
     alex = Student('Alex', 'abcdef', 3.4)
     print(alex.name)
