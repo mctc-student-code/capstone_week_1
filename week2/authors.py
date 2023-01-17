@@ -1,4 +1,5 @@
 """
+Part1 and Part 2
 • Create a new class called Author
 • An Author has a name, and a list of books published
 • When you create a new Author, they don't have any books. So create an empty
@@ -28,7 +29,7 @@ class Author:
     
     def publish(self, title):
         book_list_lowercase = [ book.lower() for book in self.book_list ] # gets all book in lower case
-        if title.lower() in book_list_lowercase:
+        if title.lower() in book_list_lowercase: # ensuring the book name doesn't already exist
             print(f'Warning * The book titled {title} already exists in the list of books for author {self.name}')
         else:
             self.book_list.append(title) # adds the title of the book to the list of books of the author

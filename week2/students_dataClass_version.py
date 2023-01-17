@@ -1,4 +1,5 @@
 """
+Part 3
 - new concept
 Python's dataclass remove a lot of the
 boilerplate* from class definitions
@@ -19,7 +20,7 @@ class Student:
     name: str
     college_id: str
     gpa: float
-
+    # data classes have methods defined already and we don't need to explicitly define it like in regular traditional class
     # you can override the toString methods
     def __str__(self): # similar to toString() method in Java
         return f'Student name = {self.name}, ID: {self.college_id}, GPA: {self.gpa}'
