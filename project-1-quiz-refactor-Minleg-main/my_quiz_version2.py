@@ -8,22 +8,22 @@ We should be able to add more questions and answer in any of the topics in the d
 execute correctly
 """
 def main():
-    # dictionary to store questions and answers as key value pairs
-    art_questions_answer = {'Who painted the Mona Lisa?': 'Leonardo Da Vinci', 
-                            'What precious stone is used to make the artist\'s pigment ultramarine?': 'Lapiz lazuli',
-                            'Anish Kapoor\'s bean-shaped Cloud Gate sculpture is a landmark of which city?': 'Chicago',
-                            'Which kid\'s TV characters are named after Renaissance artists?': 'Teenage Mutant Ninja Turtles',
-                            'The graphite in an artist\'s pencil is made of what chemical element?': 'Carbon'}
+    # dictionary to store questions and list of correct answers as key value pairs
+    art_questions_answer = {'Who painted the Mona Lisa?': ['Leonardo Da Vinci', 'Da Vinci'], 
+                            'What precious stone is used to make the artist\'s pigment ultramarine?': ['Lapiz lazuli'],
+                            'Anish Kapoor\'s bean-shaped Cloud Gate sculpture is a landmark of which city?': ['Chicago'],
+                            'Which kid\'s TV characters are named after Renaissance artists?': ['Teenage Mutant Ninja Turtles','Teenage Mutant Ninja Turtle','Ninja Turtle','Ninja Turtles'],
+                            'The graphite in an artist\'s pencil is made of what chemical element?': ['Carbon']}
 
-    space_questions_answer = {'Which planet is closest to the sun?': 'Mercury',
-                              'Which planet spins in the opposite direction to all the others in the solar system?': 'Venus',
-                              'How many moons does Mars have?': '2',
-                              'What was the first human-made object to leave the solar system?': 'Voyager 1',
-                              'When an asteroid enters the Earth\'s atmosphere and burns up, it is known as what?': 'Meteor'}
+    space_questions_answer = {'Which planet is closest to the sun?': ['Mercury'],
+                              'Which planet spins in the opposite direction to all the others in the solar system?': ['Venus'],
+                              'How many moons does Mars have?': ['2','two','II'],
+                              'What was the first human-made object to leave the solar system?': ['Voyager 1'],
+                              'When an asteroid enters the Earth\'s atmosphere and burns up, it is known as what?': ['Meteor']}
     
-    # added new sports dictionary
-    sports_questions_answer = {'Which gymnast is the "triple-twisting double-tucked salto backwards" skill named after?': 'Simone Biles',
-                               'Which country has won the soccer world cup the most times?': 'Brasil',
+    # added new sports dictionary, used to list to store the answers as there can be different versions of correct answer, like brazil or brasil 
+    sports_questions_answer = {'Which gymnast is the "triple-twisting double-tucked salto backwards" skill named after?': ['Simone Biles','S Biles'],
+                               'Which country has won the soccer world cup the most times?': ['Brasil','Brazil','Brazilia'],
                                'What does MLB stand for?' : 'Major League Baseball'}
 
     # dictionary with each topic as key and the dictionary with question and answer for the topic as the value
@@ -60,7 +60,8 @@ def questions(question_answer_dictionary): # method to ask user the questions re
     total = 0  # to store the number of questions the user got correct
     for question,correct_answer in question_answer_dictionary.items(): # loops the questions dictionary
         user_answer = input(question + ': ')
-        if user_answer.lower() == correct_answer.lower(): # user can answer in any case and the answer would be correct irrespective of the case
+        correct_answer_lower_case = [ answer.lower() for answer in correct_answer ] # form a new list with all correct answer in lowercase
+        if user_answer.lower() in correct_answer_lower_case: # user can answer in any case and the answer would be correct irrespective of the case
             total = total + 1
         else:
             print(f'Sorry, the correct answer is {correct_answer}') # prints message for incorrect answers
