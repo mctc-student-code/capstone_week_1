@@ -26,50 +26,35 @@ def main():
                                'Which country has won the soccer world cup the most times?': 'Brasil',
                                'What does MLB stand for?' : 'Major League Baseball'}
 
-    user_topic_option = {'art' : art_questions_answer,
+    # dictionary with each topic as key and the dictionary with question and answer for the topic as the value
+    user_topic_option = {'art' : art_questions_answer, 
                          'space' : space_questions_answer,
                          'sport' : sports_questions_answer}
     
-    topic_option = []
+    topic_option = [] # empty list to put all the topics 
     for topics in user_topic_option.keys():
-        topic_option.append(topics)
+        topic_option.append(topics) # adds each topic in the dictionary of dictionary in the list
     # topic_option = ['art', 'sport', 'space']
-    topic = chooseGenre(topic_option) # user is prompted to choose their topic of interest
-    
-    number_of_art_questions = len(art_questions_answer) # gets the number of questions for arts topic
-    number_of_space_questions = len(space_questions_answer) # gets the number of questions for space topic
-    number_of_sports_questions = len(sports_questions_answer) 
+    user_topic = chooseGenre(topic_option) # user is prompted to choose their topic of interest
 
-    if topic == 'art': 
-        total = questions(art_questions_answer) # user is asked the questions on the topic and their result is stored in total variable
-        output(topic,total,number_of_art_questions) # output is printed
-    elif topic == 'space': 
-        total = questions(space_questions_answer) # questions asked on space topic and result is obtained in total
-        output(topic,total,number_of_space_questions) # their quiz result is printed
-    else : # if topic is not art and space, it must be sport
-        total = questions(sports_questions_answer)
-        output(topic,total,number_of_sports_questions)
+    for topic, questions_answer in user_topic_option.items():
+        if  user_topic == topic: # if user topic matches a topic key in the dictionary of dictionary
+            total = questions(questions_answer) # questions function is called with the dictionary containing question and correct answer for the topic
+            output(topic, total,len(questions_answer)) # output fun is called
+
 
 def chooseGenre(topic_option): # method for user to choose the topic for quiz, either art or space
-    
+    print('Choose from following topic: ')
+    for topic in topic_option:
+        print(f'* {topic} *') # prints the topics for user to choose from
     while True:
-        user_topic = input('Enter your topic: ')
-        for topic in topic_option:
-            if topic == user_topic:
+        user_topic = input('Select a topic from the topic menu above: ')
+        for topic in topic_option: 
+            if topic == user_topic: # checking if topic user chose is in the list of valid topics
                 return user_topic
             else :
-                continue
+                continue # keeps on looping if user chose a non existing topic
 
-
-    # genre = input("Would you like art, space, or sport questions ? : ")
-    # if(genre.lower() == 'art'):
-    #     return 'art'
-    # elif(genre.lower() == 'space'):
-    #     return 'space'
-    # elif(genre.lower() == 'sport'):
-    #     return 'sport'
-    # else:
-    #     return chooseGenre() # if user enters an invalid options, the questions is asked again until user selects a valid option
 
 def questions(question_answer_dictionary): # method to ask user the questions related to the topic and return their quiz score
     total = 0  # to store the number of questions the user got correct
