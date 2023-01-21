@@ -45,11 +45,11 @@ def main():
 
 def chooseGenre(topic_option): 
     """ This method allows the user to choose the topic from a given pool of topics """
-    print('Choose from following topic: ')
+    print('Choose from following topic: \n')
     for topic in topic_option:
         print(f'* {topic} *') # prints the topics for user to choose from
     while True:
-        user_topic = input('Select a topic from the topic menu above: ')
+        user_topic = input('\nSelect a topic from the topic menu above: ')
         for topic in topic_option: 
             if topic == user_topic: # checking if topic user chose is in the list of valid topics
                 return user_topic
@@ -66,7 +66,7 @@ def questions(question_answer_dictionary): # method to ask user the questions re
         if user_answer.lower() in correct_answer_lower_case: # user can answer in any case and the answer would be correct irrespective of the case
             total = total + 1
         else:
-            print(f'Sorry, the correct answer is {correct_answer}') # prints message for incorrect answers
+            print(f'Sorry, the correct answer is {correct_answer[0]}') # prints message for incorrect answers
     return total
 
 def output(topic,total,number_of_questions): 
