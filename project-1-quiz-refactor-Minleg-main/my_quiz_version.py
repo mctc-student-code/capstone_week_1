@@ -1,13 +1,15 @@
 """
-Project 1: User is given quiz on either art or space topic and they are asked the questions on the topic selected. There answers
-are recorded and checked with the correct answer stored in the dictionary. The user can answer in anycase and should get the point
-independent of the case the user answered in.
+Project 1: 
+This is a quiz program where users are made to choose among a given list of topic and users try to answer on the questions about the chosen topic
+and are scored accordingly. This project is flexible in the way that we can easily add new topics and the datastructure to store the questions and answer 
+for the new topic and everything will operate smoothly.
 
-The questions and answers for a topic are stored in a dictionary for that topic as a key-value pair.
-We should be able to add more questions and answer in any of the topics in the dictionary defined and the program should 
-execute correctly
+All the functions have one core functionality and can operate independently in the way that, we can add more topics and more dictionaries, even
+then everything will function accordingly.
+
 """
 def main():
+    
     topic = chooseGenre() # user is prompted to choose their topic of interest
     # dictionary to store questions and answers as key value pairs
     art_questions_answer = {'Who painted the Mona Lisa?': 'Leonardo Da Vinci', 
