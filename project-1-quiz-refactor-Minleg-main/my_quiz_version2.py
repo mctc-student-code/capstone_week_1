@@ -1,14 +1,14 @@
 """
-Project 1: User is given quiz on either art or space topic and they are asked the questions on the topic selected. There answers
-are recorded and checked with the correct answer stored in the dictionary. The user can answer in anycase and should get the point
-independent of the case the user answered in.
+Project 1: 
+This is a quiz program where users are made to choose among a given list of topic and users try to answer on the questions about the chosen topic
+and are scored accordingly. This project is flexible in the way that we can easily add new topics and the datastructure to store the questions and answer 
+for the new topic and everything will operate smoothly.
 
-The questions and answers for a topic are stored in a dictionary for that topic as a key-value pair.
-We should be able to add more questions and answer in any of the topics in the dictionary defined and the program should 
-execute correctly
+All the functions have one core functionality and can operate independently in the way that, we can add more topics and more dictionaries, even
+then everything will function accordingly.
 """
 def main():
-    # dictionary to store questions and list of correct answers as key value pairs
+    # dictionary to store questions and list of correct answers as key value pairs, we can add more dictionary on other topics
     art_questions_answer = {'Who painted the Mona Lisa?': ['Leonardo Da Vinci', 'Da Vinci'], 
                             'What precious stone is used to make the artist\'s pigment ultramarine?': ['Lapiz lazuli'],
                             'Anish Kapoor\'s bean-shaped Cloud Gate sculpture is a landmark of which city?': ['Chicago'],
@@ -24,16 +24,16 @@ def main():
     # added new sports dictionary, used to list to store the answers as there can be different versions of correct answer, like brazil or brasil 
     sports_questions_answer = {'Which gymnast is the "triple-twisting double-tucked salto backwards" skill named after?': ['Simone Biles','S Biles'],
                                'Which country has won the soccer world cup the most times?': ['Brasil','Brazil','Brazilia'],
-                               'What does MLB stand for?' : 'Major League Baseball'}
+                               'What does MLB stand for?' : ['Major League Baseball']}
 
-    # dictionary with each topic as key and the dictionary with question and answer for the topic as the value
+    # dictionary with each topic as key and the dictionary with question and answer for the topic as the value, we can add new topics and its dictionary easily here
     user_topic_option = {'art' : art_questions_answer, 
                          'space' : space_questions_answer,
                          'sport' : sports_questions_answer}
     
     topic_option = [] # empty list to put all the topics 
     for topics in user_topic_option.keys():
-        topic_option.append(topics) # adds each topic in the dictionary of dictionary in the list
+        topic_option.append(topics) # adds each topic in the list
     # topic_option = ['art', 'sport', 'space']
     user_topic = chooseGenre(topic_option) # user is prompted to choose their topic of interest
 
@@ -43,7 +43,8 @@ def main():
             output(topic, total,len(questions_answer)) # output fun is called
 
 
-def chooseGenre(topic_option): # method for user to choose the topic for quiz, either art or space
+def chooseGenre(topic_option): 
+    """ This method allows the user to choose the topic from a given pool of topics """
     print('Choose from following topic: ')
     for topic in topic_option:
         print(f'* {topic} *') # prints the topics for user to choose from
@@ -57,6 +58,7 @@ def chooseGenre(topic_option): # method for user to choose the topic for quiz, e
 
 
 def questions(question_answer_dictionary): # method to ask user the questions related to the topic and return their quiz score
+    """ This method takes care of asking the questions on the topic and recording the score of the user as they answer each question """
     total = 0  # to store the number of questions the user got correct
     for question,correct_answer in question_answer_dictionary.items(): # loops the questions dictionary
         user_answer = input(question + ': ')
@@ -67,7 +69,8 @@ def questions(question_answer_dictionary): # method to ask user the questions re
             print(f'Sorry, the correct answer is {correct_answer}') # prints message for incorrect answers
     return total
 
-def output(topic,total,number_of_questions): # outputs the total
+def output(topic,total,number_of_questions): 
+    """ This method takes care of displaying the final score of the user for the chosen topic """
     print(f'Your total score on {topic} questions is {total} out of {number_of_questions}')
 
 main() # call main function
