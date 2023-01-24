@@ -7,6 +7,7 @@ Test your program with different example inputs, and comment your code.
 """
 
 def main():
+    banner()
     sentence = input('Enter a short sentence to convert to camel case: ')
     sample_special_characters = ['#','+','"'] # list of special characters to check
     list_of_words = sentence.split() # converts the sentence into a list with each word
@@ -24,5 +25,10 @@ def main():
             camel_case += word.capitalize() # all the other words are capitalized and concatenated
     
     print(f'{sentence} in camel case: {camel_case}') # prints the camel case form of the sentence
+    banner()
+    
+def banner():
+    print('\n' + '#' * 50 + '\n')
+    
 
 main()
