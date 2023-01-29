@@ -1,4 +1,4 @@
-import unittest
+import unittest # standard library unit testing framework
 from unittest import TestCase
 
 import lawn_quotes # imports the program to test
