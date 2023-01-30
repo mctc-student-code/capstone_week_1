@@ -37,3 +37,11 @@ class TestShapeAreas(TestCase): # required to extend TestCase class
         
     def test_square_area(self):
         self.assertEqual(20, area.square_area(4,5))
+
+class TestCircleArea(TestCase):
+    
+    def test_circle_area(self):
+        self.assertAlmostEqual(78.5398163, area.circle_area(5))
+        
+        with self.assertRaises(ValueError):
+            area.circle_area(-5)
