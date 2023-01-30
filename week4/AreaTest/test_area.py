@@ -43,5 +43,7 @@ class TestCircleArea(TestCase):
     def test_circle_area(self):
         self.assertAlmostEqual(78.5398163, area.circle_area(5))
         
+        self.assertEqual(0, area.circle_area(0))
+        
         with self.assertRaises(ValueError):
             area.circle_area(-5)
