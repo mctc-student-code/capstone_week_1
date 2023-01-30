@@ -1,14 +1,15 @@
 """
 To run the test without the unittest main method, on terminal run  python3 -m unittest test_area.py
 
-all test function should start their name with word test
+all test function should start their name with word test, any function that doesn't start their name with test are not considered test function
+and we can use these as helper functions if required.
 
 if the assertion method is not written in the test function, the test is considered to be passed which could be a source of error
 """
 from unittest import TestCase
 import area
 
-class TestShapeAreas(TestCase):
+class TestShapeAreas(TestCase): # required to extend TestCase class
     
     def test_triangle_area(self):
         # A triangle with height 4 and base 5 shold have area 10
