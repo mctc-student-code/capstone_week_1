@@ -3,6 +3,7 @@ def camel_case(sentence):
     # convert sentence into camel case and return
     sample_special_characters = ['#','+','"','@','{','}','[',']','%','$','&','|','`','!','~',';',':'] # list of special characters to check
     list_of_words = sentence.split() # converts the sentence into a list with each word
+    camelCase = ''
     if len(list_of_words) == 0:
         return '' 
     for special_character in sample_special_characters:
@@ -14,13 +15,20 @@ def camel_case(sentence):
         print("The sentence starts with a number, the name will not be a valid variable name") # prints a warning message
         return None
     
-    for index,word in enumerate(list_of_words): # loops through the list of words generated from the user entered sentence
-        if index == 0: 
-            camel_case = word.lower() # first word is made lower case as expected in camelCase
+    for index, word in enumerate(list_of_words):
+        if index == 0:
+            camelCase += lowercase(word)
         else:
-            camel_case += word.capitalize() # all the other words are capitalized and concatenated
+            camelCase += capitalize(word)
+
     
-    return camel_case
+    return camelCase
+
+def capitalize(word):
+    return word.capitalize()       
+
+def lowercase(word):
+    return word.lower()
     
 def main():
     sentence = input('Enter you sentence: ')
